@@ -19,9 +19,9 @@ public class ExtraerDatoCVLACUnitTest {
     public void testDatosCVLAC() {
         // Se define los datos de referencia con los que se probara el metodo extraerDatos
 
-        Investigador investigador1 = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
+        Investigador investigador1 = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
 
-        Investigador investigador2 = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
+        Investigador investigador2 = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
 
         // Se definen los datos esperados
 
@@ -37,12 +37,17 @@ public class ExtraerDatoCVLACUnitTest {
     @Test
     public void testDatosCVLAC1() {
         // Se obtienen los datos del investigador
-        Investigador investigador = ExtraerDatoCVLAC.getDatos("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
+        Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
 
         // Se definen los datos experados
         String nombreInvestigador = "Luty Del Carmen Gomezcaceres Peréz";
 
         // Se valida el datos extraido con el dato experado
         assertEquals(nombreInvestigador, investigador.getNombres());
+    }
+
+    @Test
+    public void testDatosCVLAC2() {
+
     }
 }

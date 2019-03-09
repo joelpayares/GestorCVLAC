@@ -23,14 +23,15 @@ public class Investigador {
     private String nacionalidad;
     private String sexo;
     private boolean categorizado;
+    private String[] lineas = new String[50];
 
-    public Investigador(String nombres, String nacionalidad, String sexo,boolean categorizado) {
+    public Investigador(String nombres, String nacionalidad, String sexo,boolean categorizado, String[] lineas) {
 
         this.nombres = nombres;
         this.nacionalidad = nacionalidad;
         this.sexo = sexo;
         this.categorizado = categorizado;
-
+        this.lineas = lineas;
     }
 
     public String getNombres() {
@@ -60,5 +61,12 @@ public class Investigador {
     public boolean isCategorizado() {
         return categorizado;
     }
-	
+
+    public String[] getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(String[] lineas) {
+        this.lineas = lineas;
+    }
 }

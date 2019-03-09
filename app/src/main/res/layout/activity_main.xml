@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="401dp"
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
@@ -35,8 +35,8 @@
 
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tiSexo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="397dp"
+                    android:layout_height="266dp">
 
                     <android.support.design.widget.TextInputEditText
                         android:id="@+id/teSexo"
@@ -47,7 +47,7 @@
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tiCategorizado"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <android.support.design.widget.TextInputEditText
                             android:id="@+id/teCategorizado"
@@ -61,8 +61,22 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/lista"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_above="@+id/bottom_bar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"></LinearLayout>
+
 
     <!-- Bottom Bar -->
+
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
@@ -78,8 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Obtener Datos CVLAC"
-            android:theme="@style/PrimaryFlatButton"
-            />
+            android:theme="@style/PrimaryFlatButton" />
 
     </LinearLayout>
 

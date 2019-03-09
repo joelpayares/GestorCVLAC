@@ -16,38 +16,31 @@ public class ExtraerDatoCVLACUnitTest {
     public GestionTestExtraerDatoCVLAC gestionTestExtraerDatoCVLAC = new GestionTestExtraerDatoCVLAC();
 
     @Test
-    public void testDatosCVLAC() {
-        // Se define los datos de referencia con los que se probara el metodo extraerDatos
+    public void testDatosCVLAC()
+    {
+        DatosInvestigadores matdatinv[]= new DatosInvestigadores[5];
+        matdatinv[0] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707","Guillermo Carlos Hernández Hernández","Masculino",false,0);
+        matdatinv[1] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478","Luty Del Carmen Gomezcaceres Peréz","Femenino",true,3);
+        //matdatinv[2] = new DatosInvestigadores("","Guillermo Carlos Hernández Hernández","Masculino",false,0);
+        //matdatinv[3] = new DatosInvestigadores("","Guillermo Carlos Hernández Hernández","Masculino",false,0);
+        //matdatinv[4] = new DatosInvestigadores("","Guillermo Carlos Hernández Hernández","Masculino",false,0);
 
-        Investigador investigador1 = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
-
-        Investigador investigador2 = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
-
-        // Se definen los datos esperados
-
-        String nombreInvestigador1 = "Guillermo Carlos Hernández Hernández";
-        String nombreInvestigador2 = "Namuel Francisco Solórzano Peralta";
+        Investigador investigador1 = ExtraerDatoCVLAC.getDatosH3(matdatinv[0].urlinv);
+        Investigador investigador2 = ExtraerDatoCVLAC.getDatosH3(matdatinv[1].urlinv);
 
         // Se comprueba o testea el valor esperado con el obtenido
 
-        assertEquals(nombreInvestigador1, investigador1.getNombres());
-        assertEquals(nombreInvestigador2, investigador2.getNombres());
-    }
 
-    @Test
-    public void testDatosCVLAC1() {
-        // Se obtienen los datos del investigador
-        Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
+        //assertEquals((matdatinv[0].numlininv>0 ? true:false),(investigador1.getLineas().length > 0 ? true:false)); //si tiene lineas de investigacion
+        assertEquals(matdatinv[0].catinv,investigador1.isCategorizado());  // si esta categorizado
+        assertEquals(matdatinv[0].nominv, investigador1.getNombres()); // Se comparan nombres
+        assertEquals(matdatinv[0].sexinv, investigador1.getSexo()); // Se comparan sexos
+        //assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length ); //si son iguales el numero lineas de investigacion
 
-        // Se definen los datos experados
-        String nombreInvestigador = "Luty Del Carmen Gomezcaceres Peréz";
-
-        // Se valida el datos extraido con el dato experado
-        assertEquals(nombreInvestigador, investigador.getNombres());
-    }
-
-    @Test
-    public void testDatosCVLAC2() {
-
+        //assertEquals((matdatinv[1].numlininv>0 ? true:false),(investigador2.getLineas().length > 0 ? true:false)); //si tiene lineas de investigacion
+        assertEquals(matdatinv[1].catinv,investigador2.isCategorizado());  // si esta categorizado
+        assertEquals(matdatinv[1].nominv, investigador2.getNombres()); // Se comparan nombres
+        assertEquals(matdatinv[1].sexinv, investigador2.getSexo()); // Se comparan sexos
+        //assertEquals(matdatinv[4].numlininv,investigador2.getLineas().length ); //si son iguales el numero lineas de investigacion
     }
 }

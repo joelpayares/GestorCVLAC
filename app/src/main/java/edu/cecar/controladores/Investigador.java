@@ -23,14 +23,27 @@ public class Investigador {
     private String nacionalidad;
     private String sexo;
     private boolean categorizado;
+    private String categoria;
     private String[] lineas = new String[50];
 
-    public Investigador(String nombres, String nacionalidad, String sexo,boolean categorizado, String[] lineas) {
+
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+
+    public Investigador(String nombres, String nacionalidad, String sexo,boolean categorizado,String categoria, String[] lineas) {
 
         this.nombres = nombres;
         this.nacionalidad = nacionalidad;
         this.sexo = sexo;
         this.categorizado = categorizado;
+        this.categoria=categoria;
         this.lineas = lineas;
     }
 

@@ -42,8 +42,9 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
+                //Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
                 //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132 - Namuel
+                Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
                 //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478 - Luty
                 //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180 - Jhon
                 adicionarDatosCasillasTexto(investigador);
@@ -63,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
                 teNombres.setText(investigador.getNombres());
                 teNacionalidad.setText(investigador.getNacionalidad());
                 teSexo.setText(investigador.getSexo());
-                teCategoria.setText(investigador.isCategorizado() ? "Si" : "No");
+                //teCategoria.setText(investigador.isCategorizado() ? investigador.getCategoria() : "No esta categorizado.");
+                teCategoria.setText(investigador.getCategoria());
+
 
                 if (investigador.getLineas() != null){
                     for (int i = 0; i < investigador.getLineas().length; i++){

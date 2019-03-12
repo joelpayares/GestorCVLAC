@@ -30,12 +30,13 @@ public class ExtraerDatoCVLACUnitTest {
 
         // Se comprueba o testea el valor esperado con el obtenido
 
+        System.out.println("Comparacion: " + matdatinv[0].numlininv + " - " + investigador1.getLineas().length);
 
-        //assertEquals((matdatinv[0].numlininv>0 ? true:false),(investigador1.getLineas().length > 0 ? true:false)); //si tiene lineas de investigacion
+        assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length); //si tiene lineas de investigacion
         assertEquals(matdatinv[0].catinv,investigador1.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[0].nominv, investigador1.getNombres()); // Se comparan nombres
         assertEquals(matdatinv[0].sexinv, investigador1.getSexo()); // Se comparan sexos
-        //assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length ); //si son iguales el numero lineas de investigacion
+        assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length ); //si son iguales el numero lineas de investigacion
 
         //assertEquals((matdatinv[1].numlininv>0 ? true:false),(investigador2.getLineas().length > 0 ? true:false)); //si tiene lineas de investigacion
         assertEquals(matdatinv[1].catinv,investigador2.isCategorizado());  // si esta categorizado

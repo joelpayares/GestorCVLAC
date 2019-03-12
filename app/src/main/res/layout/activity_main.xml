@@ -12,7 +12,6 @@
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
-            android:id="@+id/tiNombres"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -23,7 +22,6 @@
                 android:hint="@string/nombres" />
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tiNacionalidad"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -34,7 +32,6 @@
                     android:hint="@string/nacionalidad" />
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tiSexo"
                     android:layout_width="397dp"
                     android:layout_height="266dp">
 
@@ -45,7 +42,6 @@
                         android:hint="@string/sexo" />
 
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/tiCategorizado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 

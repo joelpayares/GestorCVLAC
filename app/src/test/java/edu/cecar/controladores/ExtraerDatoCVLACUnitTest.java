@@ -32,13 +32,14 @@ public class ExtraerDatoCVLACUnitTest {
 
         System.out.println("Comparacion: " + matdatinv[0].numlininv + " - " + investigador1.getLineas().length);
 
-        assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length); //si tiene lineas de investigacion
+        assertEquals(false, matdatinv[0].numlininv > 0 && investigador2.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[0].catinv,investigador1.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[0].nominv, investigador1.getNombres()); // Se comparan nombres
         assertEquals(matdatinv[0].sexinv, investigador1.getSexo()); // Se comparan sexos
-        assertEquals(matdatinv[0].numlininv,investigador1.getLineas().length ); //si son iguales el numero lineas de investigacion
+        assertEquals(true, matdatinv[0].numlininv == investigador1.getLineas().length); //si son iguales el numero lineas de investigacion
+        assertEquals(matdatinv[0].numlininv, investigador1.getLineas().length);
 
-        //assertEquals((matdatinv[1].numlininv>0 ? true:false),(investigador2.getLineas().length > 0 ? true:false)); //si tiene lineas de investigacion
+        assertEquals(true, matdatinv[1].numlininv > 0 && investigador2.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[1].catinv,investigador2.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[1].nominv, investigador2.getNombres()); // Se comparan nombres
         assertEquals(matdatinv[1].sexinv, investigador2.getSexo()); // Se comparan sexos

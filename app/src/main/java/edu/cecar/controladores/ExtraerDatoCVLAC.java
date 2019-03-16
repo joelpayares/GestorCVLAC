@@ -14,7 +14,7 @@ public class ExtraerDatoCVLAC {
 
         Investigador investigador = null;
         int posTabla = -1;
-        String[] localLineas = new String[50];
+        String[] localLineas;
 
         try {
             //Se obtiene el documento HTML
@@ -37,11 +37,11 @@ public class ExtraerDatoCVLAC {
                 boolean categorizado = false;
 
                 if (filasTablaGeneral.size() > 4) {
-                    filacategoria =1;
+                    filacategoria = 1;
                     filaNombre = 2;
                     filaNacionalidad = 4;
                     filaSexo = 5;
-                    categorizado=true;
+                    categorizado = true;
                 }
 
                 //Se obtienen las columnas para cada atributo del invstigador
@@ -49,14 +49,17 @@ public class ExtraerDatoCVLAC {
                 String nacionalidad = filasTablaGeneral.get(filaNacionalidad).select("td").get(1).text();
                 String sexo = filasTablaGeneral.get(filaSexo).select("td").get(1).text();
                 String categoria;
-                if (filacategoria>0) {
-                    categoria =filasTablaGeneral.get(filacategoria).select("td").get(1).text();;
+                if (filacategoria > 0) {
+                    categoria = filasTablaGeneral.get(filacategoria).select("td").get(1).text();;
                 } else {
-                    categoria="No esta categorizado.";
+                    categoria = "No esta categorizado.";
                 }
 
                 Element tablasLineaInves = documentoHTML.select("table").get(posTabla+1); //Se obtiene la segunda tabla
                 Elements filasLineaInves = tablasLineaInves.select("tr"); // Se obtienen las filas de la tabla
+
+                localLineas = new String[filasLineaInves.size()];
+
                 if (posTabla != -1) {
                     for (int i = 0; i < filasLineaInves.size(); i++)
                     {

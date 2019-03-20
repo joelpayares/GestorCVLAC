@@ -58,13 +58,14 @@ public class ExtraerDatoCVLAC {
             }
 
             Element tablasLineaInves = documentoHTML.select("table").get(posTabla + 1); //Se obtiene la segunda tabla
-            Elements filasLineaInves = tablasLineaInves.select("tr"); // Se obtienen las filas de la tabla
+            Elements filasLineaInves = tablasLineaInves.select("tr").select("td"); // Se obtienen las filas de la tabla
+            Elements lineasInvestigacion = filasLineaInves.select("li");
 
-            localLineas = new String[filasLineaInves.size()];
+            localLineas = new String[lineasInvestigacion.size()];
 
             if (posTabla != -1) {
-                for (int i = 0; i < filasLineaInves.size(); i++) {
-                    localLineas[i] = filasLineaInves.get(i).text();
+                for (int i = 0; i < lineasInvestigacion.size(); i++) {
+                    localLineas[i] = lineasInvestigacion.get(i).text();
                 }
             }
             //Se crea el objeto investigador

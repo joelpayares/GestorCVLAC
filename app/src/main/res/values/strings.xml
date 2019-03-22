@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">MiAplicacion</string>
+    <string name="app_name">CONSULTAR CVLAC INVESTIGADORES</string>
     <string name="nacionalidad">Nacionalidad</string>
     <string name="nombres">Nombres Completos</string>
     <string name="sexo">Sexo</string>
     <string name="categorizado">Categorizado</string>
+    <string name="linea">Líneas de investigación</string>
 </resources>

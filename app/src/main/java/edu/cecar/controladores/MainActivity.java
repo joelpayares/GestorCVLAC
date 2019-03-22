@@ -1,85 +1,60 @@
 package edu.cecar.controladores;
 
-import android.support.design.widget.TextInputEditText;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
-    private TextInputEditText teNombres;
-    private TextInputEditText teNacionalidad;
-    private TextInputEditText teSexo;
-    private TextInputEditText teCategoria;
-    private LinearLayout layout;
+    HashMap<String, String> listadoInvestigador = new HashMap<>();
+    public static final String parurlinv = "parurlinv";
+
+    ListView lista;
+    Button btnEstadisticas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Se referencias los elementos graficos
-        teNombres = findViewById(R.id.teNombres);
-        teNacionalidad = findViewById(R.id.teNacionalidad);
-        teSexo = findViewById(R.id.teSexo);
-        teCategoria = findViewById(R.id.teCategorizado);
-        layout = findViewById(R.id.lista);
+        lista = findViewById(R.id.lista);
+        btnEstadisticas = findViewById(R.id.btnEstadisticas);
 
-        Button btObtenerDatosCVLac = findViewById(R.id.btObtenerDatos);
-        btObtenerDatosCVLac.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                extraerDatosCVLAC();
+        listadoInvestigador.put("Guillermo Carlos Hernández Hernández", "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
+        listadoInvestigador.put("Luty Del Carmen Gomezcaceres Peréz", "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
+        listadoInvestigador.put("Jhon Jaime Mendez Alandete", "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180");
+        listadoInvestigador.put("Namuel Francisco Solórzano Peralta", "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
+        listadoInvestigador.put("Adriana Patricia Arboleda Lopez", "http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001414537");
+
+        String[] nomInv = new String[listadoInvestigador.size()];
+
+        for (int i = 0; i < listadoInvestigador.size(); i ++){
+            nomInv[i] = (String) listadoInvestigador.keySet().toArray()[i];
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, nomInv);
+        lista.setAdapter(adapter);
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this, InformationActivity.class);
+                intent.putExtra(parurlinv, listadoInvestigador.get(parent.getAdapter().getItem(position)));
+                startActivity(intent);
             }
         });
-    }
 
-    public void extraerDatosCVLAC() {
-
-        new Thread(new Runnable() {
+        btnEstadisticas.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                //Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132");
-                //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132 - Namuel
-                Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478");
-                //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478 - Luty
-                //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180 - Jhon
-                //Investigador investigador = ExtraerDatoCVLAC.getDatosH3("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707");
-                //http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707 - Guillo
-
-                adicionarDatosCasillasTexto(investigador);
-            }
-
-        }).start();
-
-    }
-
-    public void adicionarDatosCasillasTexto(final Investigador investigador) {
-
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                teNombres.setText(investigador.getNombres());
-                teNacionalidad.setText(investigador.getNacionalidad());
-                teSexo.setText(investigador.getSexo());
-                //teCategoria.setText(investigador.isCategorizado() ? investigador.getCategoria() : "No esta categorizado.");
-                teCategoria.setText(investigador.getCategoria());
-
-                if (investigador.getLineas() != null){
-                    for (int i = 0; i < investigador.getLineas().length; i++){
-                        TextView lineaInvestigacion = new TextView(MainActivity.this);
-
-                        lineaInvestigacion.setText(investigador.getLineas()[i]);
-
-                        layout.addView(lineaInvestigacion);
-                    }
-                }
-
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, EstadisticasActivity.class);
+                startActivity(intent);
             }
         });
     }

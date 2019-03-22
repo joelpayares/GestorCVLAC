@@ -29,6 +29,7 @@ public class ExtraerDatoCVLAC {
                     posTabla = i;
                 }
             }
+
             Element tablasGeneral = documentoHTML.select("table").get(1); //Se obtiene la segunda tabla
             Elements filasTablaGeneral = tablasGeneral.select("tr"); // Se obtienen las filas de la tabla
 
@@ -51,23 +52,28 @@ public class ExtraerDatoCVLAC {
             String nacionalidad = filasTablaGeneral.get(filaNacionalidad).select("td").get(1).text();
             String sexo = filasTablaGeneral.get(filaSexo).select("td").get(1).text();
             String categoria;
+
             if (filacategoria > 0) {
                 categoria = filasTablaGeneral.get(filacategoria).select("td").get(1).text();
             } else {
                 categoria = "No esta categorizado.";
             }
 
-            Element tablasLineaInves = documentoHTML.select("table").get(posTabla + 1); //Se obtiene la segunda tabla
-            Elements filasLineaInves = tablasLineaInves.select("tr").select("td"); // Se obtienen las filas de la tabla
-            Elements lineasInvestigacion = filasLineaInves.select("li");
-
-            localLineas = new String[lineasInvestigacion.size()];
-
             if (posTabla != -1) {
-                for (int i = 0; i < lineasInvestigacion.size(); i++) {
-                    localLineas[i] = lineasInvestigacion.get(i).text();
+                Element tablasLineaInves = documentoHTML.select("table").get(posTabla + 1); //Se obtiene la segunda tabla
+                Elements filasLineaInves = tablasLineaInves.select("tr");
+                int j = 0;
+
+                localLineas = new String[filasLineaInves.size() - 1];
+
+                for (int i = 1; i < filasLineaInves.size(); i++) {
+                    localLineas[j] = filasLineaInves.get(i).text();
+                    j++;
                 }
+            }else{
+                localLineas = new String[0];
             }
+
             //Se crea el objeto investigador
             investigador = new Investigador(nombre, nacionalidad, sexo, categorizado, categoria, localLineas);
         } catch (IOException e) {

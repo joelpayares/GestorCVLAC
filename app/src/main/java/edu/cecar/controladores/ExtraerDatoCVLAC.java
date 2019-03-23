@@ -12,7 +12,8 @@ public class ExtraerDatoCVLAC {
     private ExtraerDatoCVLAC() {
     }
 
-    public static Investigador getDatosH3(String url) {
+    public static Investigador getDatosH3(String url)
+    {
 
         Investigador investigador = null;
         int posTabla = -1;
@@ -82,4 +83,7 @@ public class ExtraerDatoCVLAC {
 
         return investigador;
     }
+
+
+
 }

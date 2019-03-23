@@ -46,6 +46,7 @@
                 tools:layout_editor_absoluteY="102dp" />
 
             <LinearLayout
+                android:id="@+id/layoutSexo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">

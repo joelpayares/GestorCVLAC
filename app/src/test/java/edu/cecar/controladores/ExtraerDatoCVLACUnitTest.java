@@ -26,18 +26,13 @@ public class ExtraerDatoCVLACUnitTest {
 
         Investigador investigador1 = ExtraerDatoCVLAC.getDatosH3(matdatinv[0].urlinv);
 
-        // Se comprueba o testea el valor esperado con el obtenido
-        System.out.println("Comparacion 1: " + matdatinv[0].numlininv + " - " + investigador1.getLineas().length);
-
         assertEquals(false, matdatinv[0].numlininv > 0 && investigador1.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[0].catinv,investigador1.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[0].nominv, investigador1.getNombres()); // Se comparan nombres
         assertEquals(matdatinv[0].sexinv, investigador1.getSexo()); // Se comparan sexos
-        //assertEquals(matdatinv[0].numlininv, investigador1.getLineas().length);
+        assertEquals(matdatinv[0].numlininv, investigador1.getLineas().length);
 
         Investigador investigador2 = ExtraerDatoCVLAC.getDatosH3(matdatinv[1].urlinv);
-
-        System.out.println("Comparacion 2: " + matdatinv[1].numlininv + " - " + investigador2.getLineas().length);
 
         assertEquals(true, matdatinv[1].numlininv > 0 && investigador2.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[1].catinv,investigador2.isCategorizado());  // si esta categorizado
@@ -47,8 +42,6 @@ public class ExtraerDatoCVLACUnitTest {
 
         Investigador investigador3 = ExtraerDatoCVLAC.getDatosH3(matdatinv[2].urlinv);
 
-        System.out.println("Comparacion 3: " + matdatinv[2].numlininv + " - " + investigador3.getLineas().length);
-
         assertEquals(true, matdatinv[2].numlininv > 0 && investigador3.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[2].catinv,investigador3.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[2].nominv, investigador3.getNombres()); // Se comparan nombres
@@ -56,8 +49,6 @@ public class ExtraerDatoCVLACUnitTest {
         assertEquals(matdatinv[2].numlininv, investigador3.getLineas().length);
 
         Investigador investigador4 = ExtraerDatoCVLAC.getDatosH3(matdatinv[3].urlinv);
-
-        System.out.println("Comparacion 4: " + matdatinv[3].numlininv + " - " + investigador4.getLineas().length);
 
         assertEquals(false, matdatinv[3].numlininv > 0 && investigador4.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[3].catinv,investigador4.isCategorizado());  // si esta categorizado
@@ -67,8 +58,6 @@ public class ExtraerDatoCVLACUnitTest {
 
 
         Investigador investigador5 = ExtraerDatoCVLAC.getDatosH3(matdatinv[4].urlinv);
-
-        System.out.println("Comparacion 5: " + matdatinv[4].numlininv + " - " + investigador5.getLineas().length);
 
         assertEquals(true, matdatinv[4].numlininv > 0 && investigador5.getLineas().length > 0); //si tiene lineas de investigacion
         assertEquals(matdatinv[4].catinv,investigador5.isCategorizado());  // si esta categorizado

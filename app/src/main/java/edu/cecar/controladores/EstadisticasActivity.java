@@ -61,33 +61,39 @@ public class EstadisticasActivity extends AppCompatActivity {
     }
 
     private synchronized void extraerInvestigador(final String parurlinv, final int parconinv) {
-        new Thread(new Runnable() {
+        Thread t = new Thread(() -> {
+            objconinv = ExtraerDatoCVLAC.getDatosH3(parurlinv);
+
+            if (objconinv.getSexo().trim().charAt(0) == 'M') {
+                conhom = conhom + 1;
+            } else if (objconinv.getSexo().trim().charAt(0) == 'F') {
+                conmuj = conmuj + 1;
+            }
+
+            if (objconinv.isCategorizado() == true) {
+                concat = concat + 1;
+            } else {
+                consincat = consincat + 1;
+            }
+
+            if (objconinv.getLineas().length > 0) {
+                conlininv = conlininv + 1;
+            } else {
+                consininv = consininv + 1;
+            }
+
+            if (parconinv == 4){
+                conest = true;
+            }
+        });
+
+        t.start();
+
+        /*new Thread(new Runnable() {
             @Override
             public void run() {
-                objconinv = ExtraerDatoCVLAC.getDatosH3(parurlinv);
 
-                if (objconinv.getSexo().trim().charAt(0) == 'M') {
-                    conhom = conhom + 1;
-                } else if (objconinv.getSexo().trim().charAt(0) == 'F') {
-                    conmuj = conmuj + 1;
-                }
-
-                if (objconinv.isCategorizado() == true) {
-                    concat = concat + 1;
-                } else {
-                    consincat = consincat + 1;
-                }
-
-                if (objconinv.getLineas().length > 0) {
-                    conlininv = conlininv + 1;
-                } else {
-                    consininv = consininv + 1;
-                }
-
-                if (parconinv == 4){
-                    conest = true;
-                }
             }
-        }).start();
+        }).start();*/
     }
 }

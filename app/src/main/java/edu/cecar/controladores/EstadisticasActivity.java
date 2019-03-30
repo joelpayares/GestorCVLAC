@@ -40,10 +40,10 @@ public class EstadisticasActivity extends AppCompatActivity {
             extraerInvestigador(objdatinv.matdatinv[i].urlinv, i);
         }
 
-        runOnUiThread(()->MethodToRun());
+        runOnUiThread(()->methodToRun());
     }
 
-    private void MethodToRun() {
+    private void methodToRun() {
         boolean loccon = false;
 
         while(!loccon){
@@ -70,7 +70,7 @@ public class EstadisticasActivity extends AppCompatActivity {
                 conmuj = conmuj + 1;
             }
 
-            if (objconinv.isCategorizado() == true) {
+            if (objconinv.isCategorizado()) {
                 concat = concat + 1;
             } else {
                 consincat = consincat + 1;

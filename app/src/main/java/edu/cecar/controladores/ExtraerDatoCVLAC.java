@@ -12,7 +12,7 @@ public class ExtraerDatoCVLAC {
     private ExtraerDatoCVLAC() {
     }
 
-    public synchronized static Investigador getDatosH3(String url) {
+    public static synchronized Investigador getDatosH3(String url) {
         Investigador investigador = null;
         int posTabla = -1;
         String[] localLineas;

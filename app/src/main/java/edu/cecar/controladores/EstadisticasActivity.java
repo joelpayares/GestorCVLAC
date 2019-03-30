@@ -3,7 +3,6 @@ package edu.cecar.controladores;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
 
 public class EstadisticasActivity extends AppCompatActivity {
     TextInputEditText txtconhom;
@@ -14,7 +13,13 @@ public class EstadisticasActivity extends AppCompatActivity {
     TextInputEditText txtconsininv;
 
     Investigador objconinv;
-    int conhom = 0, conmuj = 0, concat = 0, consincat = 0, conlininv = 0, consininv = 0;
+    int conhom = 0;
+    int conmuj = 0;
+    int concat = 0;
+    int consincat = 0;
+    int conlininv = 0;
+    int consininv = 0;
+
     private boolean conest = false;
 
     @Override
@@ -35,22 +40,26 @@ public class EstadisticasActivity extends AppCompatActivity {
             extraerInvestigador(objdatinv.matdatinv[i].urlinv, i);
         }
 
+        runOnUiThread(() -> {
+            boolean loccon = false;
+
+            while(!loccon){
+                if (conest == true){
+                    loccon = true;
+
+                    txtconhom.setText("" + String.valueOf(conhom));
+                    txtconmuj.setText("" + String.valueOf(conmuj));
+                    txtconcat.setText("" + String.valueOf(concat));
+                    txtconsincat.setText("" + String.valueOf(consincat));
+                    txtconlininv.setText("" + String.valueOf(conlininv));
+                    txtconsininv.setText("" + String.valueOf(consininv));
+                }
+            }
+        });
+
         runOnUiThread (new Thread(new Runnable() {
             public void run() {
-                boolean loccon = false;
 
-                while(!loccon){
-                    if (conest == true){
-                        loccon = true;
-
-                        txtconhom.setText("" + String.valueOf(conhom));
-                        txtconmuj.setText("" + String.valueOf(conmuj));
-                        txtconcat.setText("" + String.valueOf(concat));
-                        txtconsincat.setText("" + String.valueOf(consincat));
-                        txtconlininv.setText("" + String.valueOf(conlininv));
-                        txtconsininv.setText("" + String.valueOf(consininv));
-                    }
-                }
             }
         }));
     }

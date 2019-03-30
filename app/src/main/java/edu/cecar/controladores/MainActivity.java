@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
     HashMap<String, String> listadoInvestigador = new HashMap<>();
-    public static final String parurlinv = "parurlinv";
+    public static final String PARURLINV = "parurlinv";
 
     ListView lista;
     Button btnEstadisticas;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, InformationActivity.class);
-                intent.putExtra(parurlinv, listadoInvestigador.get(parent.getAdapter().getItem(position)));
+                intent.putExtra(PARURLINV, listadoInvestigador.get(parent.getAdapter().getItem(position)));
                 startActivity(intent);
             }
         });

@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExtraerDatoCVLACUnitTest {
+    private static final String CONST_MAS = "Masculino";
 
     @Rule
     public GestionTestExtraerDatoCVLAC gestionTestExtraerDatoCVLAC = new GestionTestExtraerDatoCVLAC();
@@ -18,10 +19,10 @@ public class ExtraerDatoCVLACUnitTest {
     @Test
     public void testDatosCVLAC() {
         DatosInvestigadores matdatinv[]= new DatosInvestigadores[5];
-        matdatinv[0] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707","Guillermo Carlos Hernández Hernández","Masculino",false,0);
+        matdatinv[0] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707","Guillermo Carlos Hernández Hernández",CONST_MAS,false,0);
         matdatinv[1] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478","Luty Del Carmen Gomezcaceres Peréz","Femenino",true,3);
-        matdatinv[2] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180","Jhon Jaime Mendez Alandete","Masculino",false,1);
-        matdatinv[3] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132","Namuel Francisco Solórzano Peralta","Masculino",false,0);
+        matdatinv[2] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000733180","Jhon Jaime Mendez Alandete",CONST_MAS,false,1);
+        matdatinv[3] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000787132","Namuel Francisco Solórzano Peralta",CONST_MAS,false,0);
         matdatinv[4] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001414537","Adriana Patricia Arboleda Lopez","Femenino",true,5);
 
         Investigador investigador1 = ExtraerDatoCVLAC.getDatosH3(matdatinv[0].urlinv);

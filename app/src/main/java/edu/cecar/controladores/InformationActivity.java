@@ -29,7 +29,7 @@ public class InformationActivity extends AppCompatActivity {
         layout = findViewById(R.id.lista);
 
         Intent intent = getIntent();
-        final String localurlinv = intent.getStringExtra(MainActivity.parurlinv);
+        final String localurlinv = intent.getStringExtra(MainActivity.PARURLINV);
 
         extraerDatosCVLAC(localurlinv);
     }

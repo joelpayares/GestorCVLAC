@@ -1,20 +1,20 @@
 package edu.cecar.controladores;
 
 public class Investigadores {
-    DatosInvestigadores matdatinv[];
+    DatosInvestigadores[] matdatinv;
     private static final String CONST_MAS = "Masculino";
 
     public Investigadores(int modo) //modo=0 producción, modo=1 testeo
     {
         matdatinv = new DatosInvestigadores[5];
         if (modo == 0) {
-            this.cargar_datos_investigadores_produccion();
+            this.cargarDatosInvestigadoresProduccion();
         } else {
-            this.cargar_datos_investigadores_testeo();
+            this.cargarDatosInvestigadoresTesteo();
         }
     }
 
-    public void cargar_datos_investigadores_produccion() {
+    public void cargarDatosInvestigadoresProduccion() {
 
         matdatinv[0] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707", "Guillermo Carlos Hernández Hernández");
         matdatinv[1] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478", "Luty Del Carmen Gomezcaceres Peréz");
@@ -23,7 +23,7 @@ public class Investigadores {
         matdatinv[4] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001414537", "Adriana Patricia Arboleda Lopez");
     }
 
-    public void cargar_datos_investigadores_testeo() {
+    public void cargarDatosInvestigadoresTesteo() {
 
         matdatinv[0] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001376707", "Guillermo Carlos Hernández Hernández", CONST_MAS, false, 0);
         matdatinv[1] = new DatosInvestigadores("http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000402478", "Luty Del Carmen Gomezcaceres Peréz", "Femenino", true, 3);

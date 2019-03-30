@@ -47,15 +47,15 @@ public class EstadisticasActivity extends AppCompatActivity {
         boolean loccon = false;
 
         while(!loccon){
-            if (conest == true){
+            if (conest){
                 loccon = true;
 
-                txtconhom.setText("" + String.valueOf(conhom));
-                txtconmuj.setText("" + String.valueOf(conmuj));
-                txtconcat.setText("" + String.valueOf(concat));
-                txtconsincat.setText("" + String.valueOf(consincat));
-                txtconlininv.setText("" + String.valueOf(conlininv));
-                txtconsininv.setText("" + String.valueOf(consininv));
+                txtconhom.setText("" + conhom);
+                txtconmuj.setText("" + conmuj);
+                txtconcat.setText("" + concat);
+                txtconsincat.setText("" + consincat);
+                txtconlininv.setText("" + conlininv);
+                txtconsininv.setText("" + consininv);
             }
         }
     }

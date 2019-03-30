@@ -42,10 +42,10 @@ public class InformationActivity extends AppCompatActivity {
     }
 
     public void adicionarDatosCasillasTexto(final Investigador investigador) {
-        runOnUiThread(()->MethodToRun(investigador));
+        runOnUiThread(()->methodToRun(investigador));
     }
 
-    private void MethodToRun(Investigador investigador) {
+    private void methodToRun(Investigador investigador) {
         teNombres.setText(investigador.getNombres());
         teNacionalidad.setText(investigador.getNacionalidad());
         teSexo.setText(investigador.getSexo());

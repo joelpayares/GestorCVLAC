@@ -31,7 +31,7 @@ public class ExtraerDatoCVLACUnitTest {
         assertEquals(matdatinv[0].catinv,investigador1.isCategorizado());  // si esta categorizado
         assertEquals(matdatinv[0].nominv, investigador1.getNombres()); // Se comparan nombres
         assertEquals(matdatinv[0].sexinv, investigador1.getSexo()); // Se comparan sexos
-        assertEquals(matdatinv[0].numlininv, investigador1.getLineas().length);
+        assertEquals(matdatinv[0].numlininv, investigador1.getLineas().length); // Se comparan el numero de lineas de investigacion
 
         Investigador investigador2 = ExtraerDatoCVLAC.getDatosH3(matdatinv[1].urlinv);
 

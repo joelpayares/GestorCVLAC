@@ -1,5 +1,7 @@
 package edu.cecar.controladores;
 
+import android.util.Log;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -76,7 +78,7 @@ public class ExtraerDatoCVLAC {
             //Se crea el objeto investigador
             investigador = new Investigador(nombre, nacionalidad, sexo, categorizado, categoria, localLineas);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.i("context", e.getMessage());
         }
 
         return investigador;

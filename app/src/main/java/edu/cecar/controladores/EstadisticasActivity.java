@@ -40,24 +40,24 @@ public class EstadisticasActivity extends AppCompatActivity {
             extraerInvestigador(objdatinv.matdatinv[i].urlinv, i);
         }
 
-        runOnUiThread (new Thread(new Runnable() {
-            public void run() {
-                boolean loccon = false;
+        runOnUiThread(()->MethodToRun());
+    }
 
-                while(!loccon){
-                    if (conest == true){
-                        loccon = true;
+    private void MethodToRun() {
+        boolean loccon = false;
 
-                        txtconhom.setText("" + String.valueOf(conhom));
-                        txtconmuj.setText("" + String.valueOf(conmuj));
-                        txtconcat.setText("" + String.valueOf(concat));
-                        txtconsincat.setText("" + String.valueOf(consincat));
-                        txtconlininv.setText("" + String.valueOf(conlininv));
-                        txtconsininv.setText("" + String.valueOf(consininv));
-                    }
-                }
+        while(!loccon){
+            if (conest == true){
+                loccon = true;
+
+                txtconhom.setText("" + String.valueOf(conhom));
+                txtconmuj.setText("" + String.valueOf(conmuj));
+                txtconcat.setText("" + String.valueOf(concat));
+                txtconsincat.setText("" + String.valueOf(consincat));
+                txtconlininv.setText("" + String.valueOf(conlininv));
+                txtconsininv.setText("" + String.valueOf(consininv));
             }
-        }));
+        }
     }
 
     private synchronized void extraerInvestigador(final String parurlinv, final int parconinv) {
@@ -88,12 +88,5 @@ public class EstadisticasActivity extends AppCompatActivity {
         });
 
         t.start();
-
-        /*new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-            }
-        }).start();*/
     }
 }
